@@ -1,0 +1,1538 @@
+:root {
+    --color-primary: #5ec576;
+    --color-secondary: #ffcb03;
+    --color-tertiary: #ff585f;
+    --color-primary-darker: #4bbb7d;
+    --color-secondary-darker: #ffbb00;
+    --color-tertiary-darker: #fd424b;
+    --color-primary-opacity: #5ec5763a;
+    --color-secondary-opacity: #ffcd0331;
+    --color-tertiary-opacity: #ff58602d;
+    --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.9;
+    background-color: #f3f3f3;
+}
+
+/* GENERAL ELEMENTS */
+.section {
+    padding: 15rem 3rem;
+    border-top: 1px solid #ddd;
+
+    transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+    opacity: 0;
+    transform: translateY(8rem);
+}
+
+.section__title {
+    max-width: 80rem;
+    margin: 0 auto 8rem auto;
+}
+
+.section__description {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.section__header {
+    font-size: 4rem;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    padding: 1.25rem 4.5rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-darker);
+}
+
+.btn--text {
+    display: inline-block;
+    background: none;
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--color-primary);
+    border: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+p {
+    color: #666;
+}
+
+/* This is BAD for accessibility! Don't do in the real world! */
+button:focus {
+    outline: none;
+}
+
+img {
+    transition: filter 0.5s;
+}
+
+.lazy-img {
+    filter: blur(20px);
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.errorShow {
+    display: flex;
+    /* background-color: white;  */
+    /* position: relative; */
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 0;
+    top: 0%;
+    font-size: 1.5rem;
+    color: red;
+    size: 3rem;
+}
+
+#errorMessage {
+    align-items: center;
+    margin-left: 45%;
+    color: red;
+}
+
+.btn--close-modal-closeMsg {
+    border: none;
+    cursor: pointer;
+}
+
+
+/* NAVIGATION */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9rem;
+    width: 100%;
+    padding: 0 6rem;
+    z-index: 100;
+
+}
+
+/* nav and stickly class at the same time */
+.nav.sticky {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.95);
+
+}
+
+.nav__logo {
+    height: 4.5rem;
+    transition: all 0.3s;
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__item {
+    margin-left: 4rem;
+}
+
+.nav__link:link,
+.nav__link:visited {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+}
+
+.nav__link--btn:link,
+.nav__link--btn:visited {
+    padding: 0.8rem 2.5rem;
+    border-radius: 3rem;
+    background-color: var(--color-primary);
+    color: #222;
+}
+
+.nav__link--btn:hover,
+.nav__link--btn:active {
+    color: inherit;
+    background-color: var(--color-primary-darker);
+    color: #333;
+}
+
+.centre {
+    margin-right: 15px;
+    font-size: 1.2rem;
+
+}
+
+.end {
+    margin-left: 70px;
+    left: 2pc;
+}
+
+
+
+.button_itemsManager {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsViewCustomer {
+    margin-left: 20em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+    margin: 3rem 3rem;
+}
+
+.button_itemsAddEmployees {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsChangeManager {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsAddBankBranch {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+    margin: 3rem 3rem;
+}
+
+.button_itemsUpdateBankBranch {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 314px;
+}
+
+.button_itemsAddManager {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 314px;
+}
+
+.button_itemsUpdatemanager {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsDeleteManager {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+    margin: 3rem 3rem;
+}
+
+.button_itemsUpdateEmployee {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsDeleteEmployee {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+}
+
+.button_itemsViewEmployee {
+    margin-left: 10em;
+    display: inline-block;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 313px;
+    margin: 3rem 3rem;
+}
+
+.admin_buttons {
+    margin-left: 1rem;
+    padding: 11rem 11rem;
+}
+
+.buttons {
+    margin-left: 7rem;
+    /*  width: 200rem ;
+    height: 200rem;  */
+}
+
+
+.button_link--btn {
+    text-decoration: none;
+}
+
+.button_link:link,
+.button_link:visited {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+}
+
+.button_link--btn:link,
+.button_link--btn:visited {
+    padding: 5rem 5rem;
+    border-radius: 1rem;
+    background-color: var(--color-primary);
+    color: #222;
+}
+
+.button_link--btn:hover,
+.button_link--btn:active {
+    color: inherit;
+    background-color: var(--color-primary-darker);
+    color: #333;
+}
+
+.balance {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.balance__label {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: -0.2rem;
+    margin-left: 3rem;
+}
+
+.balance__date {
+    font-size: 1.4rem;
+    color: #888;
+    margin-left: 3rem;
+}
+
+.balance__value {
+    font-size: 4.5rem;
+    font-weight: 400;
+
+}
+
+/* view customers details */
+
+.change_password_modal2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400rem;
+    min-height: 60%;
+    background-color: #f1f1f1;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+.change_password_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.change_password_modal2 table {
+    max-width: 600px;
+    width: 100%;
+    border: 3px solid white;
+    margin-top: 30px;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--color-primary);
+
+    color: black;
+    border-collapse: collapse;
+    margin: 30px auto 0px;
+
+
+}
+
+.change_password_modal2 table thead {
+
+    font-size: 16px;
+    font-weight: bold;
+    border: 0.5px solid white;
+    width: 220px;
+    color: black;
+}
+
+.change_password_modal2 table tr {
+    border: 1px solid white;
+    color: black;
+    padding: 5rem;
+}
+
+.change_password_modal2 table tr td {
+    color: black;
+    font-weight: lighter;
+    border: 0.5px solid white;
+    padding: 0rem 1rem;
+}
+
+.change_password_modal2 h2 {
+    margin: 30px auto 10px;
+    width: 200px;
+
+}
+
+.btn--close-modal-change {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+/* update manager */
+
+.updateManager {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+.updateManager_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.updateManager_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.updateManager_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.updateManager_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.updateManager_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn--close-modal-updateManager {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+
+/* ADD manager */
+
+.AddManager {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+.AddManager_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.AddManager_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.AddManager_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.AddManager_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.AddManager_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn--close-modal-AddManager {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* delete manager */
+
+.deleteManager {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.deleteManager_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.deleteManager_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.deleteManager_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.deleteManager_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.deleteManager_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.btn--close-modal-deleteManager {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+
+/*  .hidden1 {
+    visibility: hidden;
+    opacity: 0;
+}
+  .overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+  }
+   */
+/* view employee */
+.viewEmployee {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400rem;
+    min-height: 70%;
+    background-color: #e7e7e7;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.viewEmployee_modal2_header {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+
+}
+
+
+.viewEmployee table {
+    max-width: 600px;
+    width: 100%;
+    border: 3px solid white;
+    margin-top: 30px;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--color-primary);
+
+    color: black;
+    border-collapse: collapse;
+    margin: 30px auto 0px;
+
+
+}
+
+.viewEmployee table thead {
+
+    font-size: 16px;
+    font-weight: bold;
+    border: 0.5px solid white;
+    width: 220px;
+    color: black;
+}
+
+.viewEmployee table tr {
+    border: 1px solid white;
+    color: black;
+    padding: 5rem;
+}
+
+.viewEmployee table tr td {
+    color: black;
+    font-weight: lighter;
+    border: 0.5px solid white;
+    padding: 0rem 1rem;
+}
+
+.viewEmployee h2 {
+    margin: 30px auto 10px;
+    width: 200px;
+
+}
+
+.btn--close-modal-viewEmployee {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* delete employee */
+
+.deleteEmployee {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.deleteEmployee_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.deleteEmployee_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.deleteEmployee_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.deleteEmployee_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.deleteEmployee_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.btn--close-modal-deleteEmployee {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* update employee */
+
+
+.updateEmployee {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.updateEmployee_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.updateEmployee_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.updateEmployee_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.updateEmployee_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.updateEmployee_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.btn--close-modal-updateEmployee {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* .updateManager {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60rem;
+    min-height: 30%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+.updateManager_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+}
+
+.updateManager_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.updateManager_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.updateManager_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.updateManager_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn--close-modal-updateManager {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+} */
+
+/*  .hidden1 {
+    visibility: hidden;
+    opacity: 0;
+}
+  .overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+  }
+   */
+
+/* add employees  */
+
+.addEmployees_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    margin-left: 20rem;
+
+}
+
+.addEmployees {
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+
+}
+
+.btn--close-modal-addEmployees {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.addEmployees_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.addEmployees_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.addEmployees_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.addEmployees_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+/* Transfer Money  */
+
+.transfer_money_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.btn--close-modal-transferMoney {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.TransferMoney_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 19rem;
+
+}
+
+.transferMoney_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.transferMoney_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+    left: 0%;
+}
+
+.transferMoney_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    width: 50%;
+}
+
+.transferMoney_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+/* Withdraw Money */
+
+.withdraw_money_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.btn--close-modal-withdrawMoney {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.withdrawMoney_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 15rem;
+
+}
+
+.withdrawMoney_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.withdrawMoney_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.withdrawMoney_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.withdrawMoney_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+/* withdraw succesful */
+
+.withdraw_successful {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 69%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.withdrawSuccesfull_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 13%;
+    margin-top: 5%;
+
+
+}
+
+.fa-solid {
+    font-size: 10rem;
+    color: rgb(57, 168, 75);
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+/* Submit Cash */
+
+.submitCash {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.btn--close-modal-submitCash {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.submitCash_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 19rem;
+}
+
+.submitCash_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.submitCash_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.submitCash_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.submitCash_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+/* Update Bank Branch */
+
+.submitBank {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.btn--close-modal-submitBank {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.submitBank_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 19rem;
+}
+
+.submitBank_modal_form {
+    margin: 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.submitBank_modal_form label {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.submitBank_modal_form input {
+    font-size: 1.7rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.submitBank_modal_form button {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+/* view Details manager */
+.updateDetailsModal table {
+    max-width: 600px;
+    width: 100%;
+    border: 3px solid white;
+    margin-top: 30px;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--color-primary);
+
+    color: black;
+    border-collapse: collapse;
+    margin: 30px auto 0px;
+
+
+}
+
+.updateDetailsModal table thead {
+
+    font-size: 16px;
+    font-weight: bold;
+    border: 0.5px solid white;
+    width: 200px;
+    color: black;
+}
+
+.updateDetailsModal table tr {
+    border: 1px solid white;
+    color: black;
+}
+
+.updateDetailsModal table tr td {
+    color: black;
+    font-weight: lighter;
+    border: 0.5px solid white;
+}
+
+.updateDetailsModal h2 {
+    margin: 30px auto 10px;
+    width: 200px;
+
+}
+
+.updateDetailsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.btn--close-modal-updateDetails {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.updateDetails_modal2_header {
+    font-size: 2.25rem;
+    margin-bottom: 6.5rem;
+    line-height: 1.5;
+    margin-left: 13rem;
+}
+
+
+
+/* MOVEMENTS */
+.movements {
+    grid-row: 2 / span 3;
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: scroll;
+}
+
+.movements__row {
+    padding: 2.25rem 4rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.movements__type {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.1rem 1rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+}
+
+.movements__date {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #666;
+}
+
+.movements__type--deposit {
+    background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements__type--withdrawal {
+    background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.movements__value {
+    font-size: 1.7rem;
+    margin-left: auto;
+}
+
+/* Transaction history  */
+
+.movements {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-height: 45%;
+    background-color: #f3f3f3;
+    padding: 5rem 6rem;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+    width: 60%;
+}
